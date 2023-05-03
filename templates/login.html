@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'partials/navbar.html' %}
+    <div class="text-primary border rounded-0 login-card" style="background: rgb(255,255,255);"><img class="profile-img-card" src="{% static '/assets/img/avatar_2x.png' %}">
+        <p class="profile-name-card"> </p>
+        <form class="form-signin"><span class="reauth-email"> </span>
+            <input class="form-control" type="email" id="inputEmail" required="" placeholder="Email address" autofocus="">
+            <input class="form-control" type="password" id="inputPassword" required="" placeholder="Password">
+            <div class="checkbox">
+                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Remember me</label></div>
+            </div>
+            <button class="btn btn-primary btn-lg border rounded-pill d-block btn-signin w-100" data-bss-hover-animate="shake" type="submit" style="--bs-body-bg: #f1c9aa;background: #f1c9aa;">Sign in</button>
+        </form><a class="forgot-password" href="#">Forgot your password?</a>
+    </div>
+   
+{% endblock content %}

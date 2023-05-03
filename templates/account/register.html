@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    {% include 'partials/navbar.html' %}
+    {% include 'partials/_messages.html' %}
+
+    <div class="text-primary border rounded-0 login-card " style="background: rgb(255,255,255); width: 60rem;">
+        <img class="profile-img-card" src="{% static '/assets/img/avatar_2x.png' %}">
+        <p class="profile-name-card"></p>
+        <form method="post" action="" class="form-signin"><span class="reauth-email"> </span>
+
+            {% csrf_token %}
+
+            {% for fm in form %}
+                <div class="form-group">
+                    {{ fm.label_tag }}
+                    {{ fm }}
+                    <small class="text-danger">{{ fm.errors|striptags }}</small>
+                </div>
+            {% endfor %}
+            <button class="btn btn-primary btn-lg border rounded-pill d-block btn-signin w-100"
+                    data-bss-hover-animate="shake" type="submit" style="--bs-body-bg: #f1c9aa;background: #f1c9aa;">Sign
+                in
+            </button>
+        </form>
+        <div>
+            <a class="forgot-password" href="{% url 'main:password-reset' %}">Forgot your password?</a>
+        </div>
+        <a class="forgot-password" href="{% url 'main:login' %}">Already have an Account?</a>
+    </div>
+{% endblock content %}

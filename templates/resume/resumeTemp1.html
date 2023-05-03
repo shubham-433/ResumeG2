@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+
+{% include 'partials/navbar.html' %}
+{% include 'partials/_messages.html' %}
+{% for fm in form %}
+<div class="form-group">
+    {{fm.label_tag}}
+    {{fm.value}}
+    <small class="text-danger">{{fm.errors|striptags}}</small>
+</div>
+{% endfor %}
+
+{% endblock content %}
